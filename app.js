@@ -46,10 +46,6 @@ app.use((request, response, next) => {
 
 app.use(`/api/${apiVersion}`, router)
 
-app.use('/', async(req,res) => {
-    res.send('hello world')
-})
-
 // handle error
 app.use((request, response, next) => {
     const error = new Error("Not found");
@@ -64,6 +60,11 @@ app.use((error, request, response, next) => {
         message: error.message || "Server error",
     });
 });
+
+app.use('/', async(req,res) => {
+    res.send('hello world')
+})
+
 
 
 

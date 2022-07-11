@@ -3,11 +3,12 @@ const express = require("express"),
 
 
 
-var userRoute = require('./userRouter')
-var authRoute = require('./authRouter')
+var adminRoute = require('./admin/index')
+var customerRoute = require('./customer/index')
 
 
-router.use('/users',userRoute)
-router.use('/auth',authRoute)
+router.use('/admin',adminRoute)
+router.use('/customer',customerRoute)
+
 
 module.exports = router
