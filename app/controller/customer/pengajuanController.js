@@ -108,6 +108,7 @@ exports.invoice = async(req,res) => {
         const data = {
             _id: pengajuan._id,
             tipeAsuransi: pengajuan.tipeAsuransi,
+            okupasiId: pengajuan.okupasiId._id,
             okupasi: pengajuan.okupasiId.nama,
             noInvoice: history_transaction.invoice,
             periode: pengajuan.jangkaWaktu,
