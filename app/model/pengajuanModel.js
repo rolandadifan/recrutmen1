@@ -62,7 +62,7 @@ const pengajuanSchema = mongoose.Schema(
       status: {
         type: String,
         default: 'pending',
-        enum: ['pending','disetujui', 'ditolak']
+        enum: ['belum konfirmasi', 'pending','disetujui', 'ditolak']
     }
     },
     {
