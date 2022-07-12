@@ -33,7 +33,10 @@ exports.create = async(req,res) => {
 
         return res.status(200).json({
             status: true,
-            message: 'pengajuan berhasil dikirim'
+            message: 'pengajuan berhasil dikirim',
+            data: {
+                _id: pengajuan._id
+            }
         })
     } catch (error) {
         return res.status(500).json({
