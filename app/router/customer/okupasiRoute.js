@@ -8,6 +8,7 @@ const role = require('../../middleware/permission')
 
 
 router.get('/', okupasiController.get)
+router.get('/:id', okupasiController.detail)
 
 
 module.exports = router
