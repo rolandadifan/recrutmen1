@@ -96,7 +96,7 @@ exports.detail = async(req,res) => {
 
 exports.approval = async(req,res) => {
     try {
-        const {id} = req.params
+        const id = req.body.id
         const status = req.body.status
         const updateStatus = {
             status: status

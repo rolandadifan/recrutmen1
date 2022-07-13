@@ -9,7 +9,7 @@ const role = require('../../middleware/permission')
 router.use(auth,role('admin'))
 router.get('/', pengajuanController.list)
 router.get('/:id', pengajuanController.detail)
-router.post('/aproval/:id', pengajuanController.approval)
+router.post('/aproval', pengajuanController.approval)
 
 
 
