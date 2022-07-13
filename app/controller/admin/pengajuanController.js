@@ -76,6 +76,7 @@ exports.detail = async(req,res) => {
             noInvoice: history_transaction.invoice,
             periode: pengajuan.jangkaWaktu,
             harga: pengajuan.harga,
+            gempa: pengajuan.gempa,
             total: parseFloat(history_transaction.total),
             keterangan: history_transaction.keterangan,
             status: pengajuan.status
