@@ -28,10 +28,11 @@ exports.list = async(req,res) => {
             dataView.push({
                 _id: data._id,
                 nama: data.userId.nama,
-                noPolis: data.noPolis,
+                alamat: data.alamat.alamat,
                 tipeAsuransi: data.tipeAsuransi,
+                okupasi: data.okupasiId.nama,
+                total: parseFloat(transaski.total),
                 invoice: transaski.invoice,
-                status: data.status,
                 keterangan: transaski.keterangan
             })
         }
