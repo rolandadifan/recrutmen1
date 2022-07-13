@@ -55,10 +55,6 @@ const pengajuanSchema = mongoose.Schema(
             type: Boolean,
             default: false
       },
-      noPolis:{
-            type: String,
-            default: null
-      },
       status: {
         type: String,
         default: 'pending',

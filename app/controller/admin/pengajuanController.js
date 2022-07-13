@@ -1,5 +1,7 @@
 const Pengajuan = require('../../model/pengajuanModel')
 const Transaksi = require('../../model/transaksiModel')
+const Polis = require('../../model/dataPolisModel')
+const moment = require('momment')
 const random = require('../../helper/randomNumber')
 
 exports.list = async(req,res) => {
@@ -33,7 +35,8 @@ exports.list = async(req,res) => {
                 okupasi: data.okupasiId.nama,
                 total: parseFloat(transaski.total),
                 invoice: transaski.invoice,
-                keterangan: transaski.keterangan
+                keterangan: transaski.keterangan,
+                status: data.status,
             })
         }
         return res.status(200).json({
@@ -103,7 +106,13 @@ exports.approval = async(req,res) => {
             status: status
         }
         if(status === 'disetujui'){
-            updateStatus.noPolis = 'K.01.001.' + random.randomNumber(5)
+            const generateNoPolis =  'K.01.001.' + random.randomNumber(5)
+            const dataPolish = {
+                dataPengajuan: id,
+                noPolis: generateNoPolis,
+                tanggal_cetak: new Date
+            }
+            await Polis.create(dataPolish)
         }
         await Pengajuan.updateOne({_id: Object(id)}, {
             $set: updateStatus

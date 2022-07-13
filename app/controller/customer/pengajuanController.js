@@ -1,6 +1,7 @@
 const Pengajuan = require('../../model/pengajuanModel')
 const Transaksi = require('../../model/transaksiModel')
 const Okupasi = require('../../model/okupasiModel')
+const Polis = require('../../model/dataPolisModel')
 const random = require('../../helper/randomNumber')
 
 exports.create = async(req,res) => {
@@ -69,9 +70,10 @@ exports.get = async(req,res) => {
         let dataView = []
         for(const data of datas){
             const transaski = await Transaksi.findOne({pengajuanForm: Object(data._id)})
+            const dataPolis = await Polis.findOne({dataPengajuan: Object(data._id)})
             dataView.push({
                 _id: data._id,
-                noPolis: data.noPolis,
+                noPolis: dataPolis ? dataPolis.noPolis : null,
                 tipeAsuransi: data.tipeAsuransi,
                 invoice: transaski.invoice,
                 status: data.status,
