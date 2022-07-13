@@ -31,7 +31,8 @@ exports.list = async(req,res) => {
                 noPolis: data.noPolis,
                 tipeAsuransi: data.tipeAsuransi,
                 invoice: transaski.invoice,
-                status: data.status
+                status: data.status,
+                keterangan: transaski.keterangan
             })
         }
         return res.status(200).json({
